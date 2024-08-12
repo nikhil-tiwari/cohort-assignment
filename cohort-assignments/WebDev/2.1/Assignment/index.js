@@ -27,7 +27,9 @@ const fetchPromise = (url) => {
 }
 
 const url = "https://api.github.com/users/hkirat";
-const fetchedData = fetchPromise(url).then((data) => console.log(data)).catch((err) => console.log(err));
+const fetchedData = fetchPromise(url)
+.then((data) => console.log(data))
+.catch((err) => console.log(err));
 
 
 // promisified version of fs.readfile
@@ -44,6 +46,8 @@ const readFilePromise = (path, encoding) => {
     })
 }
 
-const readFileData = readFilePromise('./file..txt', 'utf-8').then((data) => console.log(data)).catch((err) => console.log(err));
+const readFileData = readFilePromise('./file..txt', 'utf-8')
+.then((data) => console.log(data))
+.catch((err) => console.log(err));
 
   
