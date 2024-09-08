@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="a" placeholder="enter a"/>
+    <input type="number" id="b" placeholder="enter b"/>
+    <button class="sum" onclick="sendRequest">Add</button>
+
+    <script>
+        const a = document.getElementById("a");
+        const b = document.getElementById("b");
+        const button = document.getElementsByClassName("sum");
+
+        const sendRequest = () => {
+            fetch(`http://localhost:8000/add?a=${a}&b=${b}`, {
+                method: "GET",
+            })
+            alert("REquest sent successfully")
+        }
+
+    </script>
+</body>
+</html>
