@@ -8,20 +8,24 @@
 <body>
     <input type="number" id="a" placeholder="enter a"/>
     <input type="number" id="b" placeholder="enter b"/>
-    <button class="sum" onclick="sendRequest">Add</button>
+    <button class="sum" onclick="sendRequest()">Add</button>
 
     <script>
-        const a = document.getElementById("a");
-        const b = document.getElementById("b");
-        const button = document.getElementsByClassName("sum");
-
         const sendRequest = () => {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+
             fetch(`http://localhost:8000/add?a=${a}&b=${b}`, {
                 method: "GET",
             })
-            alert("REquest sent successfully")
+            .then(response => response.json())
+            .then(data => {
+                alert(`The sum is: ${data.ans}`);
+            })
+            .catch(err => {
+                alert("Error: " + err.message);
+            });
         }
-
     </script>
 </body>
 </html>
